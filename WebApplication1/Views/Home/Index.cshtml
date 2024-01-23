@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<ul class="emp">
+    @* <li class="emp1"></li>
+    <li class="emp1"></li>
+    <li class="emp1"></li> *@
+</ul>
+
+@section Scripts {
+    <script>
+        const emps = [{ "name": "Tom", "workYears": 3, "salary": 35000 },
+        { "name": "Jack", "workYears": 5, "salary": 40000 },
+        { "name": "Mary", "workYears": 7, "salary": 45000 }];
+
+        
+        const emp = document.querySelector(".emp");
+        
+        const htmlEmps = emps.map(e => {
+            const { name, workYears, salary } = e;
+
+            return (
+                `<li>${name},${workYears},${salary}</li>`
+            )
+        });
+        emp.innerHTML = htmlEmps.join("");
+        
+        
+        
+        
+        // emps.forEach(e => {
+  
+        //     const text = document.createElement("li");
+        //     // const text = document.querySelector(".emp1");
+        //     text.textContent = `姓名: ${e.name}, 年資: ${e.workYears}, 薪水: ${e.salary}`;
+        //     emp.appendChild(text);
+        // });
+
+        //建立Promise
+        // function show(data) {
+        //     const promise = new Promise(function (resolve, reject) {
+        //         setTimeout(function () {
+        //             resolve(data)
+        //         }, 1000);
+        //     })
+        //     return promise;
+        // }
+
+        // (async () => {
+        //     let data = await show("A");
+        //     console.log(data);
+        //     data = await show("B");
+        //     console.log(data);
+        //     data = await show("c");
+        //     console.log(data);
+        // })
+
+        // const promise = new promise((resolve, reject) => {
+        //     const num = math.random > 0.5 ? 1 : 0
+
+        //     if (num) {
+        //         resolve(data)
+        //     } else {
+        //         reject(error)
+        //     }
+        // });
+
+        // settimeout(function () {
+        //     console.log('a');
+        // }, 1000);
+        // settimeout(function () {
+        //     console.log('b');
+        // }, 1000);
+        // settimeout(function () {
+        //     console.log('c');
+        // }, 1000);
+    </script>
+}

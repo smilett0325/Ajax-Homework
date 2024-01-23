@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="display row d-flex">
+</div>
+
+@section Scripts {
+    <script src="~/js/travel.js"></script>
+    <script>
+        const json = spots.CommonFormat.Section;
+
+        const Context = document.querySelector(".display");
+
+        const htmlEmps = json.map(context => {
+            // 檢查 context.file.img 是否存在且不為空陣列
+            const imgSrc = Array.isArray(context.file.img) && context.file.img.length > 0
+                ? context.file.img[0].text
+                : 'placeholder.jpg';  // 如果不存在或為空陣列，使用一個預設的圖片 URL
+
+            return (
+                `
+                    <div class="card mx-2" style="width: 18rem;">
+                          <img src="${imgSrc}" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">${context.stitle}</h5>
+                                        <p class="card-text">${context.xbody}</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                    </div>
+                `
+            );
+        });
+
+        Context.innerHTML = htmlEmps.join("");
+    </script>
+}
